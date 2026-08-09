@@ -486,12 +486,46 @@ select:focus-visible {
 }
 @keyframes heroFade {
   from {
-    opacity: 0;
+    opacity: 1;
     transform: translateY(8px);
   }
 
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE SAFETY FIX
+========================================= */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+section {
+  width: 100%;
+  max-width: 100%;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  .site-container {
+    width: calc(100% - 20px);
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .section-space {
+    padding-block: 44px;
   }
 }

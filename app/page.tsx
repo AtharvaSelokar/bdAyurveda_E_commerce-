@@ -587,8 +587,8 @@ export default function Home() {
     <div className="grid overflow-hidden rounded-[28px] border border-[var(--border)] bg-[#f7f5ef] shadow-[var(--shadow-small)] lg:grid-cols-[1.08fr_0.92fr]">
       <div className="relative min-h-[400px] overflow-hidden bg-[#eef2eb] sm:min-h-[540px]">
         <img
-          src="/products/hair-growth-oil/cover.webp"
-          alt="BD Ayurveda Advanced Hair Care Oil"
+          src="/products/arshvinashak/gallery-1.webp"
+          alt="BD Ayurveda Arshavinashak Syrup"
           className="absolute inset-0 h-full w-full object-cover transition duration-700 hover:scale-[1.025]"
         />
 
@@ -599,46 +599,48 @@ export default function Home() {
 
       <div className="flex items-center px-6 py-11 sm:p-12 lg:p-16">
         <div className="max-w-lg">
-          <span className="eyebrow">Hair wellness</span>
+  <span className="eyebrow">
+    Digestive Wellness
+  </span>
 
-          <h2 className="editorial-heading mt-4 text-[2.55rem] leading-[1.02] text-[var(--green-dark)] sm:text-5xl">
-            Advanced Hair Care Oil
-          </h2>
+  <h2 className="editorial-heading mt-4 text-[2.55rem] leading-[1.02] text-[var(--green-dark)] sm:text-5xl">
+    Arshavinashak Syrup
+  </h2>
 
-          <p className="mt-5 text-sm leading-7 sm:text-base">
-            A thoughtfully formulated Ayurvedic hair oil created to support
-            scalp nourishment and healthier-looking hair as part of a regular
-            wellness routine.
-          </p>
+  <p className="mt-5 text-sm leading-7 sm:text-base">
+    A thoughtfully prepared Ayurvedic formulation designed to support
+    digestive wellness and everyday comfort as part of a balanced
+    wellness routine.
+  </p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            <span className="text-2xl font-extrabold text-[var(--green-dark)]">
-              ₹499
-            </span>
+  <div className="mt-6 flex flex-wrap items-center gap-3">
+    <span className="text-2xl font-extrabold text-[var(--green-dark)]">
+      ₹499
+    </span>
 
-            <span className="text-sm text-[var(--muted)] line-through">
-              ₹599
-            </span>
+    <span className="text-sm text-[var(--muted)] line-through">
+      ₹599
+    </span>
 
             <span className="rounded-full bg-white px-3 py-1.5 text-[10px] font-bold text-[var(--green)] shadow-sm">
-              Save ₹100
-            </span>
-          </div>
+  Save ₹100
+</span>
+</div>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/products/hair-growth-oil"
-              className="btn-primary inline-flex min-h-14 items-center justify-center gap-2 rounded-full px-8 text-sm font-bold text-white"
-            >
-              Shop Hair Care Oil
-              <ArrowIcon />
-            </Link>
+<div className="mt-8 flex flex-col gap-3 sm:flex-row">
+  <Link
+    href="/products/arshvinashak"
+    className="btn-primary inline-flex min-h-14 items-center justify-center gap-2 rounded-full px-8 text-sm font-bold text-white"
+  >
+    Shop Arshavinashak
+    <ArrowIcon />
+  </Link>
 
-            <Link
-              href="/products/hair-growth-oil"
-              className="btn-secondary inline-flex min-h-14 items-center justify-center rounded-full px-8 text-sm font-bold"
-            >
-              View Details
+  <Link
+    href="/products/arshvinashak"
+    className="btn-secondary inline-flex min-h-14 items-center justify-center rounded-full px-8 text-sm font-bold"
+  >
+    View Details
             </Link>
           </div>
         </div>

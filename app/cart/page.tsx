@@ -118,7 +118,7 @@ export default function CartPage() {
             <Link href="/" className="flex items-center gap-2.5">
               <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full bg-white shadow-sm">
                 <img
-                  src="/logo/logo.png"
+                  src="/logos/logo.png"
                   alt="BD Ayurveda"
                   className="h-full w-full object-contain p-1"
                 />
@@ -200,7 +200,7 @@ export default function CartPage() {
           <Link href="/" className="flex items-center gap-2.5">
             <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full bg-white shadow-sm">
               <img
-                src="/logo/logo.png"
+                src="/logos/logo.png"
                 alt="BD Ayurveda"
                 className="h-full w-full object-contain p-1"
               />

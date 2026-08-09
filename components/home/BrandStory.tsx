@@ -20,9 +20,11 @@ export default function BrandStory() {
             <Image
               src="/brand/story.jpg"
               alt="BD Ayurved"
-              width={650}
-              height={700}
-              className="relative z-10 rounded-[32px] object-cover shadow-xl"
+              width={900}
+              height={1200}
+               quality={75}
+               sizes="(max-width: 640px) 100vw, 600px"
+              className="h-auto w-full object-contain"  
             />
 
           </div>

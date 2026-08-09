@@ -10,7 +10,7 @@ const FREE_DELIVERY_THRESHOLD = 699;
 const STANDARD_DELIVERY_CHARGE = 79;
 
 // Replace this with your real business UPI ID before launch.
-const BUSINESS_UPI_ID = "bdayurveda@upi";
+const BUSINESS_UPI_ID = "preshitv@axl";
 
 type PaymentMethod = "upi" | "cod";
 
@@ -348,7 +348,7 @@ export default function CheckoutPage() {
           <Link href="/" className="flex min-w-0 items-center gap-2.5">
             <div className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white shadow-sm">
               <img
-                src="/logo/logo.png"
+                src="/logos/logo.png"
                 alt="BD Ayurveda"
                 className="h-full w-full object-contain p-1"
               />
