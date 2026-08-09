@@ -1,26 +1,497 @@
 @import "tailwindcss";
 
+/* =========================================
+   BD AYURVEDA — PREMIUM DESIGN SYSTEM
+========================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8f5ed;
+  --surface: #fffdf8;
+  --surface-soft: #f2eee6;
+  --surface-sage: #edf2ed;
+
+  --text: #25302a;
+  --muted: #6f746f;
+
+  --green: #527563;
+  --green-dark: #385747;
+  --green-soft: #dfe8e1;
+
+  --gold: #b08a4a;
+  --gold-soft: #e9dcc2;
+
+  --border: #ded9ce;
+  --white: #ffffff;
+
+  --radius-small: 12px;
+  --radius-medium: 18px;
+  --radius-large: 28px;
+
+  --shadow-small: 0 8px 24px rgba(37, 48, 42, 0.06);
+  --shadow-medium: 0 18px 45px rgba(37, 48, 42, 0.10);
+  --shadow-large: 0 26px 70px rgba(37, 48, 42, 0.14);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* =========================================
+   RESET
+========================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 104px;
 }
 
 body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  user-select: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text);
+  line-height: 1.12;
+}
+
+p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+summary {
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* =========================================
+   GLOBAL HELPERS
+========================================= */
+
+.site-container {
+  width: min(100% - 24px, 1180px);
+  margin-inline: auto;
+}
+
+.section-space {
+  padding-block: 56px;
+}
+
+.editorial-heading {
+  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  width: 24px;
+  height: 1px;
+  content: "";
+  background: currentColor;
+}
+
+.horizontal-scroll {
+  scrollbar-width: none;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x proximity;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* =========================================
+   MOBILE MENU
+========================================= */
+
+.mobile-menu-panel {
+  transform-origin: top right;
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease;
+}
+
+.mobile-menu:not([open]) .mobile-menu-panel {
+  opacity: 0;
+  transform: translateY(-6px) scale(0.98);
+  pointer-events: none;
+}
+
+.mobile-menu[open] .mobile-menu-panel {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* =========================================
+   FAQ
+========================================= */
+
+.faq-icon {
+  transition:
+    transform 0.28s ease,
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.faq-item[open] .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  opacity: 0;
+  transform: translateY(-5px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.faq-item[open] .faq-answer {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================
+   BUTTON SYSTEM
+========================================= */
+
+.btn-primary,
+.btn-secondary,
+.btn-text {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.btn-primary {
+  background: var(--green);
+  color: #ffffff !important;
+  box-shadow: 0 10px 24px rgba(82, 117, 99, 0.16);
+}
+
+.btn-primary:hover {
+  background: var(--green-dark);
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(82, 117, 99, 0.24);
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-secondary {
+  border: 1px solid var(--green);
+  background: transparent;
+  color: var(--green);
+}
+
+.btn-secondary:hover {
+  background: var(--green);
+  border-color: var(--green);
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(82, 117, 99, 0.14);
+}
+
+.btn-secondary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-text {
+  color: var(--green);
+}
+
+.btn-text:hover {
+  color: var(--green-dark);
+  transform: translateX(3px);
+}
+
+/* =========================================
+   PREMIUM INTERACTIONS
+========================================= */
+
+.interactive-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.interactive-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(82, 117, 99, 0.32);
+  box-shadow: 0 18px 42px rgba(37, 48, 42, 0.10);
+}
+
+.image-zoom {
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.interactive-card:hover .image-zoom {
+  transform: scale(1.045);
+}
+
+.hero-product-card {
+  box-shadow:
+    0 24px 60px rgba(37, 48, 42, 0.11),
+    0 4px 12px rgba(37, 48, 42, 0.05);
+}
+
+.hero-product-card img {
+  transition: transform 0.5s ease;
+}
+
+.hero-product-card:hover img {
+  transform: scale(1.015);
+}
+
+.icon-feature {
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.feature-item:hover .icon-feature {
+  transform: translateY(-3px);
+  background: var(--green);
+  color: #ffffff;
+}
+
+.product-action {
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.interactive-card:hover .product-action {
+  color: var(--green-dark);
+  transform: translateX(3px);
+}
+
+.avatar-image {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* =========================================
+   FOCUS STATES
+========================================= */
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(176, 138, 74, 0.35);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes gentleFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+.gentle-float {
+  animation: gentleFloat 5s ease-in-out infinite;
+}
+
+/* =========================================
+   SELECTION AND SCROLLBAR
+========================================= */
+
+::selection {
+  background: var(--green);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--green);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ebe6dc;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 640px) {
+  .section-space {
+    padding-block: 48px;
+  }
+
+  .editorial-heading {
+    letter-spacing: -0.045em;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+  }
+
+  .eyebrow::before {
+    width: 20px;
+  }
+
+  .interactive-card {
+    box-shadow: 0 5px 18px rgba(37, 48, 42, 0.045);
+  }
+}
+
+/* =========================================
+   TABLET AND DESKTOP
+========================================= */
+
+@media (min-width: 768px) {
+  .site-container {
+    width: min(100% - 48px, 1180px);
+  }
+
+  .section-space {
+    padding-block: 82px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================
+   TOUCH DEVICES
+========================================= */
+
+@media (hover: none) {
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .btn-text:hover,
+  .interactive-card:hover,
+  .hero-product-card:hover img,
+  .feature-item:hover .icon-feature,
+  .interactive-card:hover .product-action {
+    transform: none;
+  }
+}
+
+/* =========================================
+   BRAND TYPOGRAPHY
+========================================= */
+
+.brand-serif {
+  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+}
+@keyframes heroFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
